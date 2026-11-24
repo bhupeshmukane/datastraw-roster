@@ -7,7 +7,7 @@ import { SupabaseStatusBanner } from "./SupabaseStatusBanner";
 import { ManualEditModal } from "./ManualEditModal";
 
 export function InteractiveConflictCenterView() {
-  const { fixture, conflicts } = useRosterWorkflow();
+  const { fixture, conflicts, resolveConflict } = useRosterWorkflow();
 
   const brandById = new Map(fixture.brands.map((b) => [b.id, b]));
   const employeeById = new Map(fixture.employees.map((e) => [e.id, e]));
@@ -23,13 +23,6 @@ export function InteractiveConflictCenterView() {
   const timeOffs = conflicts.filter((c) => c.conflictType === "EMPLOYEE_TIME_OFF");
   const dedicated = conflicts.filter((c) => c.conflictType === "DEDICATED_BRAND_VIOLATION");
   const doubleBooked = conflicts.filter((c) => c.conflictType === "DOUBLE_BOOKED_EMPLOYEE");
-  const other = conflicts.filter(
-    (c) =>
-      c.conflictType !== "UNDERSTAFFED_BRAND" &&
-      c.conflictType !== "EMPLOYEE_TIME_OFF" &&
-      c.conflictType !== "DEDICATED_BRAND_VIOLATION" &&
-      c.conflictType !== "DOUBLE_BOOKED_EMPLOYEE"
-  );
 
   const filteredConflicts = conflicts.filter((c) => {
     if (activeFilter === "ALL") return true;
@@ -195,7 +188,7 @@ export function InteractiveConflictCenterView() {
             Detected Scheduling Violations & Interactive Remediation
           </h2>
           <p className="text-[12px] text-[#64748B]">
-            Click &quot;Resolve via Manual Edit&quot; on any item to open the assignment dialog and fix the schedule in real time.
+            Click &quot;Resolve via Edit&quot; to reassign shifts, or &quot;Mark Resolved&quot; to dismiss conflict with an audit note.
           </p>
         </div>
 
@@ -218,7 +211,7 @@ export function InteractiveConflictCenterView() {
                   <th className="px-4 py-2.5">Severity</th>
                   <th className="px-4 py-2.5">Target</th>
                   <th className="px-4 py-2.5">Description</th>
-                  <th className="px-4 py-2.5 text-right">Action</th>
+                  <th className="px-4 py-2.5 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[#E2E8F0] text-[13px] text-[#334155]">
@@ -265,19 +258,36 @@ export function InteractiveConflictCenterView() {
                         {conflict.description}
                       </td>
                       <td className="px-4 py-2 text-right">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setResolveTarget({
-                              date: conflict.workDate,
-                              brandId: conflict.brandId ?? undefined,
-                              employeeId: conflict.employeeId ?? undefined,
-                            })
-                          }
-                          className="rounded-[4px] border border-[#4F46E5] bg-[#EEF2FF] px-2.5 py-1 text-[11px] font-medium text-[#4F46E5] transition hover:bg-[#E0E7FF]"
-                        >
-                          Resolve via Edit &rarr;
-                        </button>
+                        <div className="flex items-center justify-end gap-1.5">
+                          <button
+                            type="button"
+                            onClick={() =>
+                              resolveConflict(
+                                conflict.workDate,
+                                conflict.conflictType,
+                                "Acknowledged and resolved by operator in console",
+                                conflict.employeeId ?? undefined,
+                                conflict.brandId ?? undefined
+                              )
+                            }
+                            className="rounded-[4px] border border-[#E2E8F0] bg-[#F8FAFC] px-2.5 py-1 text-[11px] font-medium text-[#334155] transition hover:bg-[#F1F5F9]"
+                          >
+                            Mark Resolved
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setResolveTarget({
+                                date: conflict.workDate,
+                                brandId: conflict.brandId ?? undefined,
+                                employeeId: conflict.employeeId ?? undefined,
+                              })
+                            }
+                            className="rounded-[4px] border border-[#4F46E5] bg-[#EEF2FF] px-2.5 py-1 text-[11px] font-medium text-[#4F46E5] transition hover:bg-[#E0E7FF]"
+                          >
+                            Resolve via Edit &rarr;
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   );
