@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>RosterIQ — Smart Workforce Operations</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#3323cc","surface":"#faf8ff","on-secondary-fixed-variant":"#005236","on-secondary-container":"#00714d","surface-dim":"#d2d9f4","surface-bright":"#faf8ff","on-tertiary-container":"#ffd4a4","secondary-fixed":"#6ffbbe","surface-variant":"#dae2fd","tertiary-fixed":"#ffddb8","on-surface":"#131b2e","surface-container-low":"#f2f3ff","surface-container-highest":"#dae2fd","background":"#faf8ff","primary-container":"#4f46e5","surface-container-high":"#e2e7ff","inverse-primary":"#c3c0ff","surface-container":"#eaedff","on-error-container":"#93000a","secondary-container":"#6cf8bb","secondary-fixed-dim":"#4edea3","tertiary":"#684000","on-secondary-fixed":"#002113","primary-fixed-dim":"#c3c0ff","on-tertiary-fixed":"#2a1700","on-primary-container":"#dad7ff","primary-fixed":"#e2dfff","on-primary":"#ffffff","tertiary-fixed-dim":"#ffb95f","on-secondary":"#ffffff","on-background":"#131b2e","surface-tint":"#4d44e3","on-error":"#ffffff","on-tertiary":"#ffffff","on-surface-variant":"#464555","inverse-on-surface":"#eef0ff","outline":"#777587","error":"#ba1a1a","error-container":"#ffdad6","primary":"#3525cd","tertiary-container":"#885500","on-primary-fixed":"#0f0069","on-tertiary-fixed-variant":"#653e00","surface-container-lowest":"#ffffff","outline-variant":"#c7c4d8","secondary":"#006c49","inverse-surface":"#283044"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"2rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","margin":"1.5rem","space-sm":"0.5rem","gutter":"1rem"},"fontFamily":{"headline-md":["Inter"],"label-sm":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"label-lg":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"headline-lg-mobile":["Inter"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest border-r border-outline-variant z-50 flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm border-b border-outline-variant"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">RosterIQ</span></div><nav class="flex-1 px-space-sm py-space-md flex flex-col gap-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="operations-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Operations Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="monthly-roster" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Monthly Roster</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="employee-management" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Employee Management</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="brand-management" href="#"><span class="material-symbols-outlined text-[20px]">storefront</span><span>Brand Management</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="conflict-center" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">warning</span><span>Conflict Center</span></span><span class="px-space-sm py-space-xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="roster-validation" href="#"><span class="material-symbols-outlined text-[20px]">fact_check</span><span>Roster Validation</span></a></nav></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant z-40 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="RosterIQ Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDipk1n20WKgFuggojvLKZJvQwD6VYQFm5sENyQUBtGLQiWf82esHh0HCzrpMNPayT56LBcJOq2g-XB9RT1DsoONeXYDIxmfWcJX3_HeSWhUeXdTPQKZVd8LXMEsoOGTkSZCgBd284BwQ9rtNdI_ZKm26KsyrTQw1CggQQKYgyVVqfcYVZh8D7_lFbns1EAKsg0TIDCj13ifXRttzqlf_vZEMNxgbI7kQ18aJcEDZA"/><span class="font-label-md text-label-md text-on-surface-variant">Smart Workforce Operations</span></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-sm px-space-md py-space-xs bg-surface-container-lowest border border-outline-variant rounded-lg font-label-lg text-label-lg text-on-surface hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span>October 2024</span><span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span></button><button aria-label="Notifications" class="relative p-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3eK8V6OZSnoCCr8hofBbWWcKjx6NscQH5iICcxAjY70SBOeRDFCy92m9zTaokd0d_wn072qW6slVi1Mor93Iq1wXPkpS4KmdyYRPOHK4YQJ1CFIxfKFgSyWPQBNLfWDkHbn9Rqq2zNPUNqtlPQsNoXSlbPeKdxnf9GVZbGVlxBQcKjX4Wd65fthpKL0og2DtEemhj3AzV872rvhxWLiKtOMuUQbc7xvdVGpUNZ4E"/><span class="font-label-lg text-label-lg text-on-surface">Elena Vance</span></div></div></header><main class="pt-16 min-h-screen bg-surface"><div class="w-full px-margin py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Operational Summary & Filter Bar -->
+<div class="flex flex-col gap-space-md bg-surface-container-lowest rounded-xl p-space-lg shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">October 2024 Matrix</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Monthly Roster Schedule</h2>
+</div>
+<div class="flex items-center gap-space-sm ml-space-md px-space-md py-space-xs bg-surface-container-low rounded-lg">
+<span class="font-label-md text-label-md text-on-surface-variant">Coverage:</span>
+<span class="font-label-lg text-label-lg text-secondary font-semibold tabular-nums" id="coverage-stat">94.8%</span>
+<span class="text-on-surface-variant/40">/</span>
+<span class="font-label-lg text-label-lg text-error font-semibold tabular-nums" id="gap-stat">8 Gaps</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="flex items-center gap-space-sm px-space-md py-space-sm bg-surface-container-low hover:bg-surface-container-high text-on-surface rounded-lg font-label-lg text-label-lg transition-colors" id="export-csv-btn" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">download</span>
+<span>Export CSV</span>
+</button>
+<button class="flex items-center gap-space-sm px-space-md py-space-sm bg-primary hover:bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg shadow-sm transition-colors" id="auto-fill-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+<span>Auto-Fill Gaps</span>
+</button>
+</div>
+</div>
+<!-- Filters & Status Legend -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-sm bg-surface-container-low/60 p-space-md rounded-lg">
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-space-xs rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">workspaces</span>
+<select aria-label="Filter by Pod" class="bg-transparent font-label-lg text-label-lg text-on-surface focus:outline-none cursor-pointer pr-space-sm" id="filter-pod">
+<option value="all">All Pods</option>
+<option value="Pod Alpha">Pod Alpha</option>
+<option value="Pod Beta">Pod Beta</option>
+</select>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-space-xs rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">storefront</span>
+<select aria-label="Filter by Brand" class="bg-transparent font-label-lg text-label-lg text-on-surface focus:outline-none cursor-pointer pr-space-sm" id="filter-brand">
+<option value="all">All Brands</option>
+<option value="Vanguard">Vanguard</option>
+<option value="Solstice">Solstice</option>
+<option value="Apex">Apex</option>
+</select>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container-lowest px-space-sm py-space-xs rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">account_tree</span>
+<select aria-label="Filter by Process" class="bg-transparent font-label-lg text-label-lg text-on-surface focus:outline-none cursor-pointer pr-space-sm" id="filter-process">
+<option value="all">All Processes</option>
+<option value="Inbound Support">Inbound Support</option>
+<option value="Order Fulfillment">Order Fulfillment</option>
+<option value="Escalations">Escalations</option>
+</select>
+</div>
+</div>
+<!-- Status Legend -->
+<div class="flex flex-wrap items-center gap-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">W</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Working Day</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">WO</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Weekly Off</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">H</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Public Holiday</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-6 h-5 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm">L</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Approved Leave</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center justify-center w-7 h-5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm">GAP</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Uncovered Shift</span>
+</div>
+</div>
+</div>
+</div>
+<!-- High-Density Horizontal-Scrollable Roster Matrix -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left" id="roster-table">
+<thead class="bg-surface-container-low" id="roster-thead">
+<!-- Populated by script -->
+</thead>
+<tbody id="roster-tbody">
+<!-- Populated by script -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed bottom-6 right-6 z-50 hidden items-center gap-space-sm px-space-md py-space-sm rounded-lg bg-inverse-surface text-inverse-on-surface shadow-md font-label-lg text-label-lg" id="roster-toast">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">check_circle</span>
+<span id="roster-toast-msg">Action completed</span>
+</div>
+</div>
+<script>
+  (function () {
+    const daysInOct = 31;
+    const dayNames = ['Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', 'Mon']; // Oct 1, 2024 is Tuesday
+    const publicHolidays = [14]; // Oct 14
+
+    const employees = [
+      {
+        id: 'EMP-101',
+        name: 'Marcus Chen',
+        role: 'Shift Lead',
+        pod: 'Pod Alpha',
+        brand: 'Vanguard',
+        process: 'Inbound Support',
+        gaps: [9, 23],
+        leaves: [17, 18]
+      },
+      {
+        id: 'EMP-102',
+        name: 'Priya Patel',
+        role: 'Senior Specialist',
+        pod: 'Pod Alpha',
+        brand: 'Solstice',
+        process: 'Escalations',
+        gaps: [4],
+        leaves: [21, 22, 23]
+      },
+      {
+        id: 'EMP-103',
+        name: 'Sofia Rodriguez',
+        role: 'Ops Coordinator',
+        pod: 'Pod Beta',
+        brand: 'Apex',
+        process: 'Order Fulfillment',
+        gaps: [11, 29],
+        leaves: [3]
+      },
+      {
+        id: 'EMP-104',
+        name: "Liam O'Connor",
+        role: 'Support Analyst',
+        pod: 'Pod Alpha',
+        brand: 'Vanguard',
+        process: 'Inbound Support',
+        gaps: [],
+        leaves: [7, 8]
+      },
+      {
+        id: 'EMP-105',
+        name: 'Aisha Khan',
+        role: 'Quality Lead',
+        pod: 'Pod Beta',
+        brand: 'Solstice',
+        process: 'Escalations',
+        gaps: [16],
+        leaves: [28, 29]
+      },
+      {
+        id: 'EMP-106',
+        name: 'David Kim',
+        role: 'Fulfillment Assoc.',
+        pod: 'Pod Beta',
+        brand: 'Apex',
+        process: 'Order Fulfillment',
+        gaps: [24],
+        leaves: []
+      },
+      {
+        id: 'EMP-107',
+        name: 'Hannah Abbott',
+        role: 'Support Specialist',
+        pod: 'Pod Alpha',
+        brand: 'Solstice',
+        process: 'Inbound Support',
+        gaps: [30],
+        leaves: [10, 11]
+      },
+      {
+        id: 'EMP-108',
+        name: 'Noah Brooks',
+        role: 'Dispatch Analyst',
+        pod: 'Pod Beta',
+        brand: 'Vanguard',
+        process: 'Order Fulfillment',
+        gaps: [],
+        leaves: [25]
+      }
+    ];
+
+    // Generate initial schedule matrix for each employee
+    employees.forEach((emp, idx) => {
+      emp.schedule = [];
+      for (let d = 1; d <= daysInOct; d++) {
+        const dayOfWeek = (d - 1) % 7; // 0=Tue, 4=Sat, 5=Sun
+        const isWeekend = dayOfWeek === 4 || dayOfWeek === 5;
+        if (publicHolidays.includes(d)) {
+          emp.schedule.push('H');
+        } else if (emp.leaves.includes(d)) {
+          emp.schedule.push('L');
+        } else if (emp.gaps.includes(d)) {
+          emp.schedule.push('GAP');
+        } else if (isWeekend) {
+          emp.schedule.push('WO');
+        } else {
+          emp.schedule.push('W');
+        }
+      }
+    });
+
+    const thead = document.getElementById('roster-thead');
+    const tbody = document.getElementById('roster-tbody');
+    const podFilter = document.getElementById('filter-pod');
+    const brandFilter = document.getElementById('filter-brand');
+    const processFilter = document.getElementById('filter-process');
+    const coverageStat = document.getElementById('coverage-stat');
+    const gapStat = document.getElementById('gap-stat');
+    const autoFillBtn = document.getElementById('auto-fill-btn');
+    const exportCsvBtn = document.getElementById('export-csv-btn');
+    const toast = document.getElementById('roster-toast');
+    const toastMsg = document.getElementById('roster-toast-msg');
+
+    function showToast(message) {
+      toastMsg.textContent = message;
+      toast.classList.remove('hidden');
+      toast.classList.add('flex');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        toast.classList.remove('flex');
+      }, 2600);
+    }
+
+    function renderHeader() {
+      let html = '<tr>';
+      html += `<th class="sticky left-0 z-20 bg-surface-container-low px-space-md py-space-sm font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant min-w-[230px]">Employee / Role</th>`;
+      html += `<th class="sticky left-[230px] z-20 bg-surface-container-low px-space-sm py-space-sm font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant min-w-[96px]">Pod</th>`;
+      html += `<th class="sticky left-[326px] z-20 bg-surface-container-low px-space-sm py-space-sm font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant text-right min-w-[76px] shadow-sm">Hrs</th>`;
+
+      for (let d = 1; d <= daysInOct; d++) {
+        const dow = dayNames[(d - 1) % 7];
+        const isWeekend = dow === 'Sat' || dow === 'Sun';
+        const isHoliday = publicHolidays.includes(d);
+        html += `<th class="px-space-xs py-space-sm text-center min-w-[42px] ${isHoliday ? 'bg-secondary-container/40' : isWeekend ? 'bg-surface-container' : ''}">
+          <div class="flex flex-col items-center leading-tight">
+            <span class="font-label-sm text-label-sm text-on-surface-variant">${dow}</span>
+            <span class="font-label-lg text-label-lg text-on-surface tabular-nums">${d}</span>
+          </div>
+        </th>`;
+      }
+      html += '</tr>';
+      thead.innerHTML = html;
+    }
+
+    function getPillClasses(code) {
+      switch (code) {
+        case 'W':
+          return 'bg-primary-fixed text-on-primary-fixed';
+        case 'WO':
+          return 'bg-surface-container-high text-on-surface-variant';
+        case 'H':
+          return 'bg-secondary-container text-on-secondary-container';
+        case 'L':
+          return 'bg-tertiary-fixed text-on-tertiary-fixed-variant';
+        case 'GAP':
+          return 'bg-error-container text-on-error-container font-semibold cursor-pointer hover:bg-error hover:text-on-error transition-colors';
+        default:
+          return 'bg-surface-container text-on-surface';
+      }
+    }
+
+    function getFilteredEmployees() {
+      const pod = podFilter.value;
+      const brand = brandFilter.value;
+      const proc = processFilter.value;
+      return employees.filter(e => {
+        return (pod === 'all' || e.pod === pod) &&
+               (brand === 'all' || e.brand === brand) &&
+               (proc === 'all' || e.process === proc);
+      });
+    }
+
+    function renderBody() {
+      const filtered = getFilteredEmployees();
+      let totalCells = 0;
+      let totalGaps = 0;
+      let html = '';
+
+      filtered.forEach((emp, rowIdx) => {
+        const workingDays = emp.schedule.filter(s => s === 'W').length;
+        const monthlyHours = workingDays * 8;
+        const rowBg = rowIdx % 2 === 0 ? 'bg-surface-container-lowest' : 'bg-surface-container-low/40';
+
+        html += `<tr class="${rowBg} hover:bg-surface-container-low transition-colors">`;
+        html += `<td class="sticky left-0 z-10 ${rowIdx % 2 === 0 ? 'bg-surface-container-lowest' : 'bg-surface-container-low'} px-space-md py-space-sm">
+          <div class="flex flex-col min-w-0">
+            <span class="font-label-lg text-label-lg text-on-surface truncate">${emp.name}</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant truncate">${emp.role}</span>
+          </div>
+        </td>`;
+        html += `<td class="sticky left-[230px] z-10 ${rowIdx % 2 === 0 ? 'bg-surface-container-lowest' : 'bg-surface-container-low'} px-space-sm py-space-sm">
+          <span class="inline-flex px-space-sm py-space-xs rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">${emp.pod}</span>
+        </td>`;
+        html += `<td class="sticky left-[326px] z-10 ${rowIdx % 2 === 0 ? 'bg-surface-container-lowest' : 'bg-surface-container-low'} px-space-sm py-space-sm text-right font-label-lg text-label-lg text-on-surface tabular-nums shadow-sm">${monthlyHours}h</td>`;
+
+        emp.schedule.forEach((code, dayIdx) => {
+          totalCells++;
+          if (code === 'GAP') totalGaps++;
+          const pillCls = getPillClasses(code);
+          const titleAttr = code === 'GAP' ? 'title="Click to assign Working Shift (W)"' : '';
+          html += `<td class="px-space-xs py-space-sm text-center">
+            <button type="button" data-emp="${emp.id}" data-day="${dayIdx}" ${titleAttr} class="roster-cell inline-flex items-center justify-center w-8 h-6 rounded font-label-sm text-label-sm ${pillCls}">${code}</button>
+          </td>`;
+        });
+
+        html += '</tr>';
+      });
+
+      if (filtered.length === 0) {
+        html = `<tr><td colspan="${daysInOct + 3}" class="py-space-xl text-center font-body-md text-body-md text-on-surface-variant">No employees match the selected filters.</td></tr>`;
+      }
+
+      tbody.innerHTML = html;
+
+      const coverage = totalCells > 0 ? (((totalCells - totalGaps) / totalCells) * 100).toFixed(1) : '100.0';
+      coverageStat.textContent = `${coverage}%`;
+      gapStat.textContent = `${totalGaps} ${totalGaps === 1 ? 'Gap' : 'Gaps'}`;
+      gapStat.className = `font-label-lg text-label-lg font-semibold tabular-nums ${totalGaps > 0 ? 'text-error' : 'text-secondary'}`;
+    }
+
+    tbody.addEventListener('click', (e) => {
+      const btn = e.target.closest('.roster-cell');
+      if (!btn) return;
+      const empId = btn.getAttribute('data-emp');
+      const dayIdx = parseInt(btn.getAttribute('data-day'), 10);
+      const emp = employees.find(x => x.id === empId);
+      if (emp && emp.schedule[dayIdx] === 'GAP') {
+        emp.schedule[dayIdx] = 'W';
+        renderBody();
+        showToast(`Assigned shift for ${emp.name} on Oct ${dayIdx + 1}`);
+      }
+    });
+
+    autoFillBtn.addEventListener('click', () => {
+      let filled = 0;
+      const filtered = getFilteredEmployees();
+      filtered.forEach(emp => {
+        emp.schedule = emp.schedule.map(code => {
+          if (code === 'GAP') {
+            filled++;
+            return 'W';
+          }
+          return code;
+        });
+      });
+      renderBody();
+      showToast(filled > 0 ? `Auto-filled ${filled} uncovered shifts` : 'No uncovered shifts to fill');
+    });
+
+    exportCsvBtn.addEventListener('click', () => {
+      const filtered = getFilteredEmployees();
+      const headers = ['Employee', 'Role', 'Pod', 'Brand', 'Process', ...Array.from({ length: daysInOct }, (_, i) => `Oct ${i + 1}`)];
+      const rows = filtered.map(emp => [emp.name, emp.role, emp.pod, emp.brand, emp.process, ...emp.schedule]);
+      const csvContent = [headers, ...rows].map(r => r.map(v => `"${v}"`).join(',')).join('\n');
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'RosterIQ_October_2024.csv';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Exported RosterIQ_October_2024.csv');
+    });
+
+    [podFilter, brandFilter, processFilter].forEach(el => {
+      el.addEventListener('change', renderBody);
+    });
+
+    renderHeader();
+    renderBody();
+  })();
+</script></div></main></div></body></html>

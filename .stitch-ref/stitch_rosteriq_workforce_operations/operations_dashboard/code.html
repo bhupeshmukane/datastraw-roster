@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>RosterIQ — Smart Workforce Operations</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#3323cc","surface":"#faf8ff","on-secondary-fixed-variant":"#005236","on-secondary-container":"#00714d","surface-dim":"#d2d9f4","surface-bright":"#faf8ff","on-tertiary-container":"#ffd4a4","secondary-fixed":"#6ffbbe","surface-variant":"#dae2fd","tertiary-fixed":"#ffddb8","on-surface":"#131b2e","surface-container-low":"#f2f3ff","surface-container-highest":"#dae2fd","background":"#faf8ff","primary-container":"#4f46e5","surface-container-high":"#e2e7ff","inverse-primary":"#c3c0ff","surface-container":"#eaedff","on-error-container":"#93000a","secondary-container":"#6cf8bb","secondary-fixed-dim":"#4edea3","tertiary":"#684000","on-secondary-fixed":"#002113","primary-fixed-dim":"#c3c0ff","on-tertiary-fixed":"#2a1700","on-primary-container":"#dad7ff","primary-fixed":"#e2dfff","on-primary":"#ffffff","tertiary-fixed-dim":"#ffb95f","on-secondary":"#ffffff","on-background":"#131b2e","surface-tint":"#4d44e3","on-error":"#ffffff","on-tertiary":"#ffffff","on-surface-variant":"#464555","inverse-on-surface":"#eef0ff","outline":"#777587","error":"#ba1a1a","error-container":"#ffdad6","primary":"#3525cd","tertiary-container":"#885500","on-primary-fixed":"#0f0069","on-tertiary-fixed-variant":"#653e00","surface-container-lowest":"#ffffff","outline-variant":"#c7c4d8","secondary":"#006c49","inverse-surface":"#283044"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"2rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","margin":"1.5rem","space-sm":"0.5rem","gutter":"1rem"},"fontFamily":{"headline-md":["Inter"],"label-sm":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"label-lg":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"headline-lg-mobile":["Inter"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest border-r border-outline-variant z-50 flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm border-b border-outline-variant"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">RosterIQ</span></div><nav class="flex-1 px-space-sm py-space-md flex flex-col gap-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="operations-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Operations Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="monthly-roster" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Monthly Roster</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="employee-management" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Employee Management</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="brand-management" href="#"><span class="material-symbols-outlined text-[20px]">storefront</span><span>Brand Management</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="conflict-center" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">warning</span><span>Conflict Center</span></span><span class="px-space-sm py-space-xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="roster-validation" href="#"><span class="material-symbols-outlined text-[20px]">fact_check</span><span>Roster Validation</span></a></nav></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant z-40 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="RosterIQ Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDipk1n20WKgFuggojvLKZJvQwD6VYQFm5sENyQUBtGLQiWf82esHh0HCzrpMNPayT56LBcJOq2g-XB9RT1DsoONeXYDIxmfWcJX3_HeSWhUeXdTPQKZVd8LXMEsoOGTkSZCgBd284BwQ9rtNdI_ZKm26KsyrTQw1CggQQKYgyVVqfcYVZh8D7_lFbns1EAKsg0TIDCj13ifXRttzqlf_vZEMNxgbI7kQ18aJcEDZA"/><span class="font-label-md text-label-md text-on-surface-variant">Smart Workforce Operations</span></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-sm px-space-md py-space-xs bg-surface-container-lowest border border-outline-variant rounded-lg font-label-lg text-label-lg text-on-surface hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span>October 2024</span><span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span></button><button aria-label="Notifications" class="relative p-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3eK8V6OZSnoCCr8hofBbWWcKjx6NscQH5iICcxAjY70SBOeRDFCy92m9zTaokd0d_wn072qW6slVi1Mor93Iq1wXPkpS4KmdyYRPOHK4YQJ1CFIxfKFgSyWPQBNLfWDkHbn9Rqq2zNPUNqtlPQsNoXSlbPeKdxnf9GVZbGVlxBQcKjX4Wd65fthpKL0og2DtEemhj3AzV872rvhxWLiKtOMuUQbc7xvdVGpUNZ4E"/><span class="font-label-lg text-label-lg text-on-surface">Elena Vance</span></div></div></header><main class="pt-16 min-h-screen bg-surface"><div class="w-full px-margin py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Operational Context Strip -->
+<div class="flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+        LIVE OPERATIONS
+      </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Q4 Peak Readiness • 4 Active Pods</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-1.5 px-space-md py-space-sm rounded-lg bg-surface-container-lowest text-on-surface font-label-lg text-label-lg shadow-sm hover:bg-surface-container-low transition-colors" id="refreshBtn" type="button">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">sync</span>
+<span>Sync Roster</span>
+</button>
+<a class="inline-flex items-center gap-1.5 px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary font-label-lg text-label-lg shadow-sm hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Assign Shift</span>
+</a>
+</div>
+</div>
+<!-- Top KPI Summary Row: 5 Crisp Cards -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-gutter">
+<!-- KPI 1: Total Employees -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Total Employees</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">group</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">38</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">active</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Across 4 pods</span>
+<svg aria-hidden="true" class="w-14 h-5 text-primary" fill="none" viewbox="0 0 56 20">
+<path d="M2 16 L12 13 L22 14 L32 8 L42 10 L54 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<!-- KPI 2: Active D2C Brands -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active D2C Brands</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">storefront</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">6</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">brands</span>
+</div>
+<div class="flex items-center gap-1 pt-space-xs">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">All SLAs active</span>
+</div>
+</div>
+<!-- KPI 3: Active Processes -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Active Processes</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">account_tree</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">14</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">workflows</span>
+</div>
+<div class="flex items-center gap-1.5 pt-space-xs">
+<span class="px-1.5 py-0.5 rounded bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">100%</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">automated</span>
+</div>
+</div>
+<!-- KPI 4: Roster Completion -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Roster Completion</span>
+<span class="w-8 h-8 rounded-lg bg-surface-container-low flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">fact_check</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">94.2%</span>
+<span class="font-label-sm text-label-sm text-primary">+1.8%</span>
+</div>
+<div class="w-full pt-space-xs">
+<div class="w-full h-1.5 rounded-full bg-surface-container-high overflow-hidden">
+<div class="h-full rounded-full bg-primary-container transition-all duration-700" style="width: 94.2%"></div>
+</div>
+</div>
+</div>
+<!-- KPI 5: Coverage Percentage -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Coverage %</span>
+<span class="w-8 h-8 rounded-lg bg-secondary-container/40 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">96.8%</span>
+<span class="px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Optimal</span>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Target: 95.0%</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+1.8%</span>
+</div>
+</div>
+</section>
+<!-- 2-Column Operational Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- Left Column (2/3 width -> 8 cols): Pod & Brand Coverage Overview -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md flex flex-wrap items-center justify-between gap-space-md bg-surface-container-lowest">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Pod &amp; Brand Coverage Overview</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live headcount allocation and shift coverage across active D2C storefronts</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg" id="statusFilterGroup">
+<button class="filter-btn px-space-sm py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm shadow-sm transition-colors" data-filter="all" type="button">All (6)</button>
+<button class="filter-btn px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" data-filter="optimal" type="button">Optimal</button>
+<button class="filter-btn px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" data-filter="tight" type="button">Tight</button>
+<button class="filter-btn px-space-sm py-1 rounded text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm transition-colors" data-filter="gap" type="button">Gap</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="px-space-lg py-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">D2C Brand</th>
+<th class="px-space-md py-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Assigned Pod</th>
+<th class="px-space-md py-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Required</th>
+<th class="px-space-md py-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Scheduled</th>
+<th class="px-space-md py-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Coverage %</th>
+<th class="px-space-lg py-space-sm font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Status</th>
+</tr>
+</thead>
+<tbody class="bg-surface-container-lowest" id="coverageTableBody">
+<tr class="hover:bg-surface-container-low/60 transition-colors" data-status="optimal">
+<td class="px-space-lg py-3">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-sm text-label-sm">AS</span>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">AuraSkin</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Skincare &amp; Beauty</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface">Pod Alpha</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">8</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">8</td>
+<td class="px-space-md py-3 font-label-lg text-label-lg text-on-surface text-right tabular-nums">100.0%</td>
+<td class="px-space-lg py-3 text-right">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Optimal</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/60 transition-colors" data-status="optimal">
+<td class="px-space-lg py-3">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-sm text-label-sm">LH</span>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Lumina Home</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Smart Lighting</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface">Pod Beta</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">6</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">6</td>
+<td class="px-space-md py-3 font-label-lg text-label-lg text-on-surface text-right tabular-nums">100.0%</td>
+<td class="px-space-lg py-3 text-right">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Optimal</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors" data-status="tight">
+<td class="px-space-lg py-3">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-label-sm text-label-sm">PF</span>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">PeakFit</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Athletic Apparel</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface">Pod Gamma</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">10</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">9</td>
+<td class="px-space-md py-3 font-label-lg text-label-lg text-tertiary text-right tabular-nums">90.0%</td>
+<td class="px-space-lg py-3 text-right">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm">Tight</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/60 transition-colors" data-status="optimal">
+<td class="px-space-lg py-3">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-primary-fixed text-on-primary-fixed flex items-center justify-center font-label-sm text-label-sm">VC</span>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">Velour Coffee</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Specialty Roasters</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface">Pod Alpha</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">5</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">5</td>
+<td class="px-space-md py-3 font-label-lg text-label-lg text-on-surface text-right tabular-nums">100.0%</td>
+<td class="px-space-lg py-3 text-right">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Optimal</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/60 transition-colors" data-status="gap">
+<td class="px-space-lg py-3">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-error-container text-on-error-container flex items-center justify-center font-label-sm text-label-sm">TG</span>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">TerraGear</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Outdoor Equipment</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface">Pod Delta</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">6</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-error font-semibold text-right tabular-nums">4</td>
+<td class="px-space-md py-3 font-label-lg text-label-lg text-error text-right tabular-nums">66.7%</td>
+<td class="px-space-lg py-3 text-right">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">Gap</span>
+</td>
+</tr>
+<tr class="bg-surface-container-low/30 hover:bg-surface-container-low/60 transition-colors" data-status="optimal">
+<td class="px-space-lg py-3">
+<div class="flex items-center gap-space-sm">
+<span class="w-7 h-7 rounded-lg bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-sm text-label-sm">NT</span>
+<div>
+<div class="font-label-lg text-label-lg text-on-surface">NovaTech</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Consumer Electronics</div>
+</div>
+</div>
+</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface">Pod Beta</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">6</td>
+<td class="px-space-md py-3 font-body-md text-body-md text-on-surface text-right tabular-nums">6</td>
+<td class="px-space-md py-3 font-label-lg text-label-lg text-on-surface text-right tabular-nums">100.0%</td>
+<td class="px-space-lg py-3 text-right">
+<span class="inline-flex items-center gap-1 px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">Optimal</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Column (1/3 width -> 4 cols): Active Operational Alerts -->
+<div class="lg:col-span-4 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Active Operational Alerts</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">3 items requiring attention</p>
+</div>
+<span class="px-space-sm py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">2 Urgent</span>
+</div>
+<div class="flex flex-col gap-space-sm" id="alertsFeed">
+<!-- Critical Scheduling Conflict (Red) -->
+<div class="p-space-md rounded-lg bg-error-container/35 flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-1.5 text-error">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Critical Conflict</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12m ago</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface">TerraGear • Pod Delta Understaffed</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">2 overlapping shift gaps detected for Oct 18 morning fulfillment window.</p>
+<div class="pt-space-xs flex items-center justify-end">
+<button class="alert-action font-label-lg text-label-lg text-error hover:underline" data-action="Resolve" type="button">Resolve →</button>
+</div>
+</div>
+<!-- Leave / Availability Warning (Amber) -->
+<div class="p-space-md rounded-lg bg-tertiary-fixed/40 flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-1.5 text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Availability Warning</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">45m ago</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface">PeakFit • Pod Gamma Tight Coverage</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Marcus Chen requested emergency PTO; coverage drops to 90.0%.</p>
+<div class="pt-space-xs flex items-center justify-end">
+<button class="alert-action font-label-lg text-label-lg text-on-tertiary-fixed-variant hover:underline" data-action="Inspect" type="button">Inspect →</button>
+</div>
+</div>
+<!-- Recent Roster Update (Indigo) -->
+<div class="p-space-md rounded-lg bg-primary-fixed/40 flex flex-col gap-space-xs">
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex items-center gap-1.5 text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">info</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Roster Update</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">2h ago</span>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface">AuraSkin • Pod Alpha Published</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">8 shifts confirmed and synced for the Oct 21–27 cycle.</p>
+<div class="pt-space-xs flex items-center justify-end">
+<button class="alert-action font-label-lg text-label-lg text-primary hover:underline" data-action="Inspect" type="button">Inspect →</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<script>
+  (function () {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const tableRows = document.querySelectorAll('#coverageTableBody tr');
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        filterButtons.forEach((b) => {
+          b.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+          b.classList.add('text-on-surface-variant');
+        });
+        btn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+        btn.classList.remove('text-on-surface-variant');
+
+        tableRows.forEach((row) => {
+          const status = row.getAttribute('data-status');
+          row.style.display = filter === 'all' || status === filter ? '' : 'none';
+        });
+      });
+    });
+
+    const alertActions = document.querySelectorAll('.alert-action');
+    alertActions.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const actionType = btn.getAttribute('data-action');
+        btn.textContent = actionType === 'Resolve' ? 'Opening Resolver...' : 'Opening Inspector...';
+        setTimeout(() => {
+          btn.textContent = actionType + ' \u2192';
+        }, 1200);
+      });
+    });
+
+    const refreshBtn = document.getElementById('refreshBtn');
+    if (refreshBtn) {
+      refreshBtn.addEventListener('click', () => {
+        const icon = refreshBtn.querySelector('.material-symbols-outlined');
+        icon.classList.add('animate-spin');
+        setTimeout(() => icon.classList.remove('animate-spin'), 800);
+      });
+    }
+  })();
+</script></div></main></div></body></html>

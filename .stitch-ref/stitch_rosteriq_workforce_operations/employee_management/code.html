@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><title>RosterIQ — Smart Workforce Operations</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-fixed-variant":"#3323cc","surface":"#faf8ff","on-secondary-fixed-variant":"#005236","on-secondary-container":"#00714d","surface-dim":"#d2d9f4","surface-bright":"#faf8ff","on-tertiary-container":"#ffd4a4","secondary-fixed":"#6ffbbe","surface-variant":"#dae2fd","tertiary-fixed":"#ffddb8","on-surface":"#131b2e","surface-container-low":"#f2f3ff","surface-container-highest":"#dae2fd","background":"#faf8ff","primary-container":"#4f46e5","surface-container-high":"#e2e7ff","inverse-primary":"#c3c0ff","surface-container":"#eaedff","on-error-container":"#93000a","secondary-container":"#6cf8bb","secondary-fixed-dim":"#4edea3","tertiary":"#684000","on-secondary-fixed":"#002113","primary-fixed-dim":"#c3c0ff","on-tertiary-fixed":"#2a1700","on-primary-container":"#dad7ff","primary-fixed":"#e2dfff","on-primary":"#ffffff","tertiary-fixed-dim":"#ffb95f","on-secondary":"#ffffff","on-background":"#131b2e","surface-tint":"#4d44e3","on-error":"#ffffff","on-tertiary":"#ffffff","on-surface-variant":"#464555","inverse-on-surface":"#eef0ff","outline":"#777587","error":"#ba1a1a","error-container":"#ffdad6","primary":"#3525cd","tertiary-container":"#885500","on-primary-fixed":"#0f0069","on-tertiary-fixed-variant":"#653e00","surface-container-lowest":"#ffffff","outline-variant":"#c7c4d8","secondary":"#006c49","inverse-surface":"#283044"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xl":"2rem","space-lg":"1.5rem","space-xs":"0.25rem","space-md":"1rem","margin":"1.5rem","space-sm":"0.5rem","gutter":"1rem"},"fontFamily":{"headline-md":["Inter"],"label-sm":["Inter"],"headline-sm":["Inter"],"headline-lg":["Inter"],"label-lg":["Inter"],"body-lg":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"headline-lg-mobile":["Inter"]},"fontSize":{"headline-md":["20px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"600"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"600"}],"headline-sm":["16px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-lg":["13px",{"lineHeight":"18px","fontWeight":"500"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","fontWeight":"500"}],"headline-lg-mobile":["22px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"600"}]}}}};</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-60 bg-surface-container-lowest border-r border-outline-variant z-50 flex flex-col"><div class="h-16 px-space-lg flex items-center gap-space-sm border-b border-outline-variant"><span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">RosterIQ</span></div><nav class="flex-1 px-space-sm py-space-md flex flex-col gap-space-xs overflow-y-auto" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-lg"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="operations-dashboard" href="#"><span class="material-symbols-outlined text-[20px]">dashboard</span><span>Operations Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="monthly-roster" href="#"><span class="material-symbols-outlined text-[20px]">calendar_month</span><span>Monthly Roster</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm transition-colors bg-primary-container text-on-primary-container font-semibold rounded-lg" data-path="employee-management" href="#"><span class="material-symbols-outlined text-[20px]">group</span><span>Employee Management</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="brand-management" href="#"><span class="material-symbols-outlined text-[20px]">storefront</span><span>Brand Management</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="conflict-center" href="#"><span class="flex items-center gap-space-sm"><span class="material-symbols-outlined text-[20px]">warning</span><span>Conflict Center</span></span><span class="px-space-sm py-space-xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">3</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="roster-validation" href="#"><span class="material-symbols-outlined text-[20px]">fact_check</span><span>Roster Validation</span></a></nav></aside><div class="pl-60"><header class="fixed top-0 left-60 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant z-40 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="RosterIQ Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDipk1n20WKgFuggojvLKZJvQwD6VYQFm5sENyQUBtGLQiWf82esHh0HCzrpMNPayT56LBcJOq2g-XB9RT1DsoONeXYDIxmfWcJX3_HeSWhUeXdTPQKZVd8LXMEsoOGTkSZCgBd284BwQ9rtNdI_ZKm26KsyrTQw1CggQQKYgyVVqfcYVZh8D7_lFbns1EAKsg0TIDCj13ifXRttzqlf_vZEMNxgbI7kQ18aJcEDZA"/><span class="font-label-md text-label-md text-on-surface-variant">Smart Workforce Operations</span></div><div class="flex items-center gap-space-md"><button class="flex items-center gap-space-sm px-space-md py-space-xs bg-surface-container-lowest border border-outline-variant rounded-lg font-label-lg text-label-lg text-on-surface hover:bg-surface-container-low hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px] text-on-surface-variant">calendar_today</span><span>October 2024</span><span class="material-symbols-outlined text-[18px] text-on-surface-variant">expand_more</span></button><button aria-label="Notifications" class="relative p-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-space-sm pl-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3eK8V6OZSnoCCr8hofBbWWcKjx6NscQH5iICcxAjY70SBOeRDFCy92m9zTaokd0d_wn072qW6slVi1Mor93Iq1wXPkpS4KmdyYRPOHK4YQJ1CFIxfKFgSyWPQBNLfWDkHbn9Rqq2zNPUNqtlPQsNoXSlbPeKdxnf9GVZbGVlxBQcKjX4Wd65fthpKL0og2DtEemhj3AzV872rvhxWLiKtOMuUQbc7xvdVGpUNZ4E"/><span class="font-label-lg text-label-lg text-on-surface">Elena Vance</span></div></div></header><main class="pt-16 min-h-screen bg-surface"><div class="w-full px-margin py-space-lg"><div class="flex flex-col w-full gap-space-lg">
+<!-- Top Toolbar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex flex-1 flex-wrap items-center gap-space-sm">
+<div class="relative flex-1 min-w-[260px] max-w-md">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">search</span>
+<input class="w-full pl-9 pr-space-md py-space-sm bg-surface-container-low rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container transition-colors" id="employee-search" placeholder="Search employees by name, pod, or skill..." type="text"/>
+</div>
+<div class="relative">
+<select aria-label="Filter by Pod" class="appearance-none pl-space-md pr-8 py-space-sm bg-surface-container-low rounded-lg font-label-lg text-label-lg text-on-surface cursor-pointer focus:outline-none focus:bg-surface-container transition-colors" id="pod-filter">
+<option value="all">All Pods</option>
+<option value="Pod Alpha">Pod Alpha</option>
+<option value="Pod Beta">Pod Beta</option>
+<option value="Pod Gamma">Pod Gamma</option>
+<option value="Unassigned">Unassigned</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+<div class="relative">
+<select aria-label="Filter by Availability" class="appearance-none pl-space-md pr-8 py-space-sm bg-surface-container-low rounded-lg font-label-lg text-label-lg text-on-surface cursor-pointer focus:outline-none focus:bg-surface-container transition-colors" id="availability-filter">
+<option value="all">All Statuses</option>
+<option value="Available">Available</option>
+<option value="Partial / Leave">Partial / Leave</option>
+<option value="Unavailable">Unavailable</option>
+</select>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-sm bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg hover:bg-primary transition-colors shadow-sm cursor-pointer" id="add-employee-btn" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Employee</span>
+</button>
+</div>
+</div>
+<!-- Summary Stat Strip -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-gutter">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Total Employees</span>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">38</span>
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">+2 this month</span>
+</div>
+</div>
+<svg aria-hidden="true" class="w-16 h-10 text-primary-container" fill="none" viewbox="0 0 64 40">
+<path d="M2 34L14 26L26 29L38 16L50 19L62 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<circle cx="62" cy="6" fill="currentColor" r="3"></circle>
+</svg>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Available</span>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">34</span>
+<span class="px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">89.5% active</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-secondary-container/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">On Leave</span>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">3</span>
+<span class="px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm">Scheduled PTO</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed/70 flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">event_busy</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex items-center justify-between">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface-variant">Unassigned</span>
+<div class="flex items-baseline gap-space-sm">
+<span class="font-headline-lg text-headline-lg text-on-surface tabular-nums">1</span>
+<span class="px-space-sm py-space-xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">Needs Pod</span>
+</div>
+</div>
+<div class="w-10 h-10 rounded-xl bg-error-container/70 flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">person_alert</span>
+</div>
+</div>
+</div>
+<!-- High-Density Enterprise Data Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low">
+<th class="py-space-sm px-space-md font-label-sm text-label-sm uppercase text-on-surface-variant">Employee</th>
+<th class="py-space-sm px-space-md font-label-sm text-label-sm uppercase text-on-surface-variant">Pod Assignment</th>
+<th class="py-space-sm px-space-md font-label-sm text-label-sm uppercase text-on-surface-variant">Assigned D2C Brands</th>
+<th class="py-space-sm px-space-md font-label-sm text-label-sm uppercase text-on-surface-variant">Operational Processes</th>
+<th class="py-space-sm px-space-md font-label-sm text-label-sm uppercase text-on-surface-variant">Weekly Hours / Capacity</th>
+<th class="py-space-sm px-space-md font-label-sm text-label-sm uppercase text-on-surface-variant">Availability Status</th>
+<th class="py-space-sm px-space-md font-label-sm text-label-sm uppercase text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="bg-surface-container-lowest" id="employee-table-body">
+<!-- Row 1 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Alpha" data-search="marcus chen emp-1042 pod alpha auraskin peakfit order fulfillment cx tier 2" data-status="Available">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Marcus Chen, an operations specialist in his early 30s wearing a crisp navy shirt against a soft neutral studio background, natural lighting, calm confident expression, clean modern enterprise aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDddKLLaFwNMo5mqhUob-xRWsci590lovOWT4PtU9-JIrJUF1V1m7mCIQWYRj2-Fa5uRZHVB3XgjOwXpixvp0PU_4trgShxGInkJVLerG5S_zQqiGV8wJMwdwdqkaYDNkE0XUJ2EWRY6uWeuDlNJRO2-dCcu76U44DZ9C6yWlrvmq8Q0wAWNr-CKh9xnlvbibrHH-qnwCXP3mD9u63E9sfuXbrIJzOzr9tz3ymTHlg"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Marcus Chen</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">m.chen@rosteriq.io • EMP-1042</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Alpha</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">AuraSkin</span>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">PeakFit</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">Order Fulfillment, CX Tier 2</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>38 / 40 hrs</span>
+<span class="text-on-surface-variant">95%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 95%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Beta" data-search="priya nair emp-1088 pod beta lumina home returns qa inventory sync" data-status="Available">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Priya Nair, a South Asian woman in her late 20s wearing a tailored slate blazer against a soft light studio background, warm natural lighting, approachable professional expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDthHxZkMeSn-lVlcbnAmK3YllSNGKBdMOSz1IBWTr9bmD6SukG8GMpqaU9hQkBfAys_6FqlRVrVto8Shur-CMhtzl_p9VoEflsXWuS5m11PRmfVVp6RwhX0VsM7BJwqRAZA0wRS-Ll6YSevAwM5hyCbf4xP0Tlu4kFzfbdz0GmO3qu-zY_oIdLPJXEzKkHbiqZMOjNEcI5pFw2fUCSmZrOuVyAOttm4e6DX2egNo"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Priya Nair</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">p.nair@rosteriq.io • EMP-1088</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Beta</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Lumina Home</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">Returns QA, Inventory Sync</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>40 / 40 hrs</span>
+<span class="text-on-surface-variant">100%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Alpha" data-search="david kowalski emp-1104 pod alpha peakfit veloce order fulfillment" data-status="Partial / Leave">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of David Kowalski, a man in his late 30s with short brown hair wearing a charcoal collared shirt against a clean light studio background, soft diffused lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1Ycj2J4AoYPXfhTOjNx96G-9easSTE0tzRDOxwEL7M5Nl-0T1tpPh_ZKOeiB4hyiIBifoWMR4nw6n4cPBUNuNcRhElM5ILo7kCbyKqTsoRgVouZ0_Q4RIqGJw4u-HYFvh1ZQb_46jMtL_4uKJIfsbLKOgtiORC_fbUEB_2y2tCbkBQVJ4SjRra-IzxrqT-1i_sAjwAuwMkcHVrOoKW0gNXz0tXX3aypf_GIzKpug"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">David Kowalski</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">d.kowalski@rosteriq.io • EMP-1104</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Alpha</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">PeakFit</span>
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Veloce</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">Order Fulfillment</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>24 / 40 hrs</span>
+<span class="text-on-surface-variant">60%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full" style="width: 60%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Partial / Leave
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Gamma" data-search="sofia alvarez emp-1129 pod gamma auraskin cx tier 2 vip escalations" data-status="Available">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Sofia Alvarez, a Latina woman in her early 30s wearing a minimalist indigo blouse against a bright neutral background, soft studio lighting, poised expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASlCAbnzdK5c9yRj6P1WnwuKsL6F-xlBHcCOxVzhetPPUKPKAFagZFGp2XfKU-d9OSDIePUFI4cQSDuXbOi2rTgwKcHz0A9TUMgzNy2_381uI_ecl_uy3GwMB-_4vEoWOmGbk_j9j-lotgpT_Y8CW_aRQzc-ECTboclt9HYrBE2Cn3D7dBxLObtZ2pmzjXFO8Qk00jBDsxOO4WTHJlTRH7wIPFMWdCJYLe-3GztZo"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Sofia Alvarez</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">s.alvarez@rosteriq.io • EMP-1129</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Gamma</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">AuraSkin</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">CX Tier 2, VIP Escalations</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>36 / 40 hrs</span>
+<span class="text-on-surface-variant">90%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 90%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Beta" data-search="liam oconnor emp-1152 pod beta lumina home peakfit returns qa" data-status="Available">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Liam O'Connor, a man in his late 20s wearing a light blue oxford shirt against a soft off-white studio backdrop, natural lighting, friendly expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5KsMnNx5Qui1pm6nvznzNy1vx4PPEnZ9TzF8YESSpATlXnPRndgRW32dYCu6QlZA75DcpIIfsknb7jSapHkjG3UxSIeGaZR2hSALq35qs67k8UzbxCDaIzX-oLhkamk2fxG_7TE9C_wbZ41y9DsuOJQcjKC-ETMEBcH6tMfJnJaRG5ICapJiPrkM8rAIrEhzRxBeTLtE5dHLW1f8qPdVdEUWL2tNc1tblX762BGg"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Liam O’Connor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">l.oconnor@rosteriq.io • EMP-1152</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Beta</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Lumina Home</span>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">PeakFit</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">Returns QA</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>32 / 40 hrs</span>
+<span class="text-on-surface-variant">80%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Unassigned" data-search="jordan taylor emp-1190 unassigned onboarding" data-status="Unavailable">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Jordan Taylor, a young professional wearing a modern charcoal knit sweater against a clean neutral studio background, soft lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhZUDk0_fMAqlybmz5sZgr2l-6RhUSbZy5Oir4eeFVfmw0Ui1MEreF6j7SfUbwAW6dbq3Bm68eo4dWsh-DOvjgdPC4m9vX8EXxeOmBuNhcNrrrQjziE16KRXpA5ebyr6IupOsMcnUSoYUUWZRSpngKdxVcYctgTTYbjy7tNHCwPyr_tzfjui0_akjxRzvOnQBr0qe-2JNBXnYZSilZJ2gb8r3Oj_oRd1SyBPAxJ8k"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Jordan Taylor</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">j.taylor@rosteriq.io • EMP-1190</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-error-container/60 font-label-md text-label-md text-on-error-container">Unassigned</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">—</span>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Onboarding (Pending)</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>0 / 40 hrs</span>
+<span class="text-on-surface-variant">0%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                Unavailable
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Assign Pod" type="button">
+<span class="material-symbols-outlined text-[18px]">group_add</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 7 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Gamma" data-search="amara oseyi emp-1203 pod gamma veloce auraskin order fulfillment inventory sync" data-status="Available">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Amara Oseyi, a Black woman in her early 30s wearing a crisp white blouse and navy blazer against a soft light studio background, confident warm expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjsKO6cOhccMJTjYSYQoFP-0LZhghAW3l8gUL8t25M_rrMZ2eprykgMda4QvGHnIFBS_gOfI5ZEtwTgFFrz4ycKfaew4fWYVskyGv84YhOT_Xe-TUOi9vEUtlM_zGDpfr8p3ChraE3Fr7TQ8URf-rd1Qsb8wTSEN7TGFQkp2WCu-C1dvYyCf04sLNEaBGlwoQI8GbhYG44ySQSmZdtQzSOSXRSSXy-KZg0PC_n0jY"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Amara Oseyi</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">a.oseyi@rosteriq.io • EMP-1203</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Gamma</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Veloce</span>
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">AuraSkin</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">Order Fulfillment, Inventory Sync</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>40 / 40 hrs</span>
+<span class="text-on-surface-variant">100%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 8 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Alpha" data-search="elena rostova emp-1215 pod alpha peakfit cx tier 2" data-status="Available">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Elena Rostova, a woman in her mid 30s with blonde hair wearing a structured slate jacket against a neutral studio background, natural lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAygoj9awO3-qp2lR_74Hrk_JtKOXvibbGAH8bkHc1VrVkUM3Ar5TWgdaVd7TSeTTj1GSpGCvayLdNrzWLEZGCRZjsByHIygvGbphlNQOCyaNgPp7zqsD29AQIyJAr3M1x957xZ4ctv2Ay23XKB2jYV-oufE_ugWeK5CnclQ4U3mkgxZdBDzDZaXdoVZt7SUx_gAgV6qOvcrU60tr1ULcMnYdrqkim8bibFl8BBzVM"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Elena Rostova</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">e.rostova@rosteriq.io • EMP-1215</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Alpha</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-surface-container-high text-on-surface font-label-sm text-label-sm">PeakFit</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">CX Tier 2</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>35 / 40 hrs</span>
+<span class="text-on-surface-variant">88%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full" style="width: 88%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Available
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 9 -->
+<tr class="employee-row hover:bg-surface-container-low/60 transition-colors" data-pod="Pod Beta" data-search="noah kim emp-1240 pod beta lumina home returns qa" data-status="Partial / Leave">
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm min-w-0">
+<img class="w-8 h-8 rounded-full object-cover shrink-0" data-alt="Corporate headshot portrait of Noah Kim, an East Asian man in his late 20s wearing glasses and a dark navy crewneck over a collared shirt against a clean light studio background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBju-xdGoCrKwjynBTnm8gc0sPOG9h3tZ61xibVzhqqHJhsSZsl2JZE6sCdKh38FyVJ45_ScTd_gnEr1IHU20ctF-JVqpK1TBOiiEC6xyo6js_0b7NU03aFNce4N3CFGaVOmR95uxvs39l_vO_2sj8m7Rde_VQ1QR0SKbw4AS-UWV8I1K1xCREUwEiaynNQbmAkWvm8qjHCOfb4spwE7mnGoBtHm9kRXInr1HFkFOM"/>
+<div class="flex flex-col min-w-0">
+<span class="font-label-lg text-label-lg text-on-surface truncate">Noah Kim</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">n.kim@rosteriq.io • EMP-1240</span>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-space-sm py-space-xs rounded-lg bg-surface-container font-label-md text-label-md text-on-surface">Pod Beta</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-wrap gap-space-xs">
+<span class="px-space-sm py-space-xs rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm">Lumina Home</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="font-body-sm text-body-sm text-on-surface">Returns QA</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex flex-col gap-space-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface tabular-nums">
+<span>16 / 40 hrs</span>
+<span class="text-on-surface-variant">40%</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full" style="width: 40%"></div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="inline-flex items-center gap-1 px-space-sm py-space-xs rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                Partial / Leave
+              </span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<div class="inline-flex items-center gap-space-xs">
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="View Schedule" type="button">
+<span class="material-symbols-outlined text-[18px]">calendar_month</span>
+</button>
+<button class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" title="Edit Employee" type="button">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface-container-low px-space-md py-space-sm flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="table-count-label">Showing 1–9 of 38 employees</span>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="" type="button">Previous</button>
+<button class="w-8 h-8 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md" type="button">1</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">2</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">3</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">4</button>
+<button class="w-8 h-8 rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">5</button>
+<button class="px-space-sm py-space-xs rounded-lg bg-surface-container-lowest text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" type="button">Next</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    const searchInput = document.getElementById('employee-search');
+    const podFilter = document.getElementById('pod-filter');
+    const availabilityFilter = document.getElementById('availability-filter');
+    const rows = Array.from(document.querySelectorAll('.employee-row'));
+    const countLabel = document.getElementById('table-count-label');
+
+    function filterRows() {
+      const query = (searchInput.value || '').trim().toLowerCase();
+      const pod = podFilter.value;
+      const status = availabilityFilter.value;
+      let visibleCount = 0;
+
+      rows.forEach((row) => {
+        const rowSearch = row.getAttribute('data-search') || '';
+        const rowPod = row.getAttribute('data-pod') || '';
+        const rowStatus = row.getAttribute('data-status') || '';
+
+        const matchesSearch = !query || rowSearch.includes(query);
+        const matchesPod = pod === 'all' || rowPod === pod;
+        const matchesStatus = status === 'all' || rowStatus === status;
+
+        if (matchesSearch && matchesPod && matchesStatus) {
+          row.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+
+      if (query || pod !== 'all' || status !== 'all') {
+        countLabel.textContent = 'Showing ' + visibleCount + ' matching employee' + (visibleCount === 1 ? '' : 's');
+      } else {
+        countLabel.textContent = 'Showing 1\u20139 of 38 employees';
+      }
+    }
+
+    searchInput.addEventListener('input', filterRows);
+    podFilter.addEventListener('change', filterRows);
+    availabilityFilter.addEventListener('change', filterRows);
+  })();
+</script></div></main></div></body></html>
