@@ -103,6 +103,10 @@ export const RosterConflictSchema = z.object({
   description: z.string().min(1),
 });
 
+export type RosterEntry = z.infer<typeof RosterEntrySchema>;
+
+export type RosterConflict = z.infer<typeof RosterConflictSchema>;
+
 export const DatastrawOrgConfigSchema = z
   .object({
     employees: z.array(EmployeeSchema),
