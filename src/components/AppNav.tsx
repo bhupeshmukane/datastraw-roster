@@ -2,49 +2,50 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-interface NavItem {
-  href: string;
-  label: string;
-  badge?: string;
-  badgeColor?: string;
-}
-
-const NAV_ITEMS: NavItem[] = [
-  {
-    href: "/",
-    label: "Operations Dashboard",
-  },
-  {
-    href: "/roster",
-    label: "Monthly Roster",
-  },
-  {
-    href: "/employees",
-    label: "Employee Management",
-    badge: "30",
-  },
-  {
-    href: "/brands",
-    label: "Brand Management",
-    badge: "20",
-  },
-  {
-    href: "/conflicts",
-    label: "Conflict Center",
-    badge: "Active",
-    badgeColor: "bg-[#FEF2F2] text-[#EF4444]",
-  },
-  {
-    href: "/validation",
-    label: "Roster Validation",
-    badge: "PASS",
-    badgeColor: "bg-[#ECFDF5] text-[#10B981]",
-  },
-];
+import { useRosterWorkflow } from "./roster/RosterWorkflowContext";
 
 export function AppNav() {
   const pathname = usePathname();
+  const { conflicts } = useRosterWorkflow();
+
+  const navItems = [
+    {
+      href: "/",
+      label: "Operations Dashboard",
+    },
+    {
+      href: "/roster",
+      label: "Monthly Roster",
+    },
+    {
+      href: "/employees",
+      label: "Employee Management",
+      badge: "30",
+    },
+    {
+      href: "/brands",
+      label: "Brand Management",
+      badge: "20",
+    },
+    {
+      href: "/conflicts",
+      label: "Conflict Center",
+      badge: conflicts.length > 0 ? `${conflicts.length}` : "0",
+      badgeColor:
+        conflicts.length > 0
+          ? "bg-[#FEF2F2] text-[#EF4444]"
+          : "bg-[#ECFDF5] text-[#10B981]",
+    },
+    {
+      href: "/validation",
+      label: "Roster Validation",
+      badge: conflicts.length === 0 ? "PASS" : "FLAGGED",
+      badgeColor:
+        conflicts.length === 0
+          ? "bg-[#ECFDF5] text-[#10B981]"
+          : "bg-[#FEF2F2] text-[#EF4444]",
+    },
+  ];
 
   return (
     <aside className="border-b border-[#E2E8F0] bg-white lg:border-b-0 lg:border-r">
@@ -72,7 +73,7 @@ export function AppNav() {
 
           {/* Navigation Links */}
           <nav aria-label="Primary Workspace Navigation" className="flex flex-wrap gap-1 lg:flex-col">
-            {NAV_ITEMS.map((item) => {
+            {navItems.map((item) => {
               const isActive =
                 item.href === "/"
                   ? pathname === "/"
