@@ -43,6 +43,7 @@ export interface RosterWorkflowContextValue {
   validationResult: { valid: boolean; conflicts: RosterConflict[] };
   manualEdits: ManualEditRecord[];
   dataSource: "SUPABASE" | "BASELINE_FIXTURE";
+  dataSourceMessage: string | null;
   isRevalidating: boolean;
   isPersisting: boolean;
   persistenceStatus: PersistResult | null;
@@ -91,6 +92,9 @@ export function RosterWorkflowProvider({
   const [month, setMonth] = useState<number>(12);
   const [dataSource, setDataSource] = useState<"SUPABASE" | "BASELINE_FIXTURE">(
     "BASELINE_FIXTURE"
+  );
+  const [dataSourceMessage, setDataSourceMessage] = useState<string | null>(
+    null
   );
 
   // Initialize baseline fixture and deterministic roster
@@ -145,6 +149,7 @@ export function RosterWorkflowProvider({
         const loaded = await loadRosterDataAction({ year: newYear, month: newMonth });
         if (loaded.success && loaded.result) {
           setDataSource(loaded.result.source);
+          setDataSourceMessage(loaded.result.message);
           setFixture(loaded.result.data);
 
           if (loaded.result.existingEntries && loaded.result.existingEntries.length > 0) {
@@ -182,6 +187,7 @@ export function RosterWorkflowProvider({
       .then((loaded) => {
         if (!mounted || !loaded.success || !loaded.result) return;
         setDataSource(loaded.result.source);
+        setDataSourceMessage(loaded.result.message);
         if (loaded.result.source === "SUPABASE") {
           setFixture(loaded.result.data);
           if (
@@ -472,6 +478,7 @@ export function RosterWorkflowProvider({
       validationResult,
       manualEdits,
       dataSource,
+      dataSourceMessage,
       isRevalidating,
       isPersisting,
       persistenceStatus,
@@ -494,6 +501,7 @@ export function RosterWorkflowProvider({
       validationResult,
       manualEdits,
       dataSource,
+      dataSourceMessage,
       isRevalidating,
       isPersisting,
       persistenceStatus,

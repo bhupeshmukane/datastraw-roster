@@ -6,6 +6,11 @@ import { useRosterWorkflow } from "./RosterWorkflowContext";
 
 export function SupabaseStatusBanner() {
   const {
+    year,
+    month,
+    dataSource,
+    dataSourceMessage,
+    changeCycle,
     persistCurrentRoster,
     isPersisting,
     persistenceStatus,
@@ -71,6 +76,28 @@ export function SupabaseStatusBanner() {
           </button>
         </div>
       )}
+
+      {/* Configured in env, but fell back to baseline fixture (e.g. missing grants or unseeded tables) */}
+      {!checking &&
+        configStatus?.configured &&
+        dataSource === "BASELINE_FIXTURE" &&
+        dataSourceMessage && (
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-[8px] border border-[#FDE68A] bg-[#FFFBEB] p-3.5 text-[#92400E] shadow-xs">
+            <div>
+              <p className="text-[13px] font-semibold">
+                Supabase Connected — Using Baseline Fallback
+              </p>
+              <p className="mt-0.5 text-[12px]">{dataSourceMessage}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => void changeCycle(year, month)}
+              className="rounded-[4px] border border-[#F59E0B]/40 bg-white px-3 py-1.5 text-[12px] font-medium text-[#92400E] transition hover:bg-[#FEF3C7]"
+            >
+              Retry DB Load
+            </button>
+          </div>
+        )}
 
       {/* Action Result Notification Banner */}
       {persistenceStatus && (
