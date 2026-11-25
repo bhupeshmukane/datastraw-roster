@@ -4,6 +4,7 @@ import React, {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useMemo,
   useState,
 } from "react";
@@ -174,16 +175,54 @@ export function RosterWorkflowProvider({
     []
   );
 
+  // Load real Supabase records on initial mount when configured
+  useEffect(() => {
+    let mounted = true;
+    loadRosterDataAction({ year: 2026, month: 12 })
+      .then((loaded) => {
+        if (!mounted || !loaded.success || !loaded.result) return;
+        setDataSource(loaded.result.source);
+        if (loaded.result.source === "SUPABASE") {
+          setFixture(loaded.result.data);
+          if (
+            loaded.result.existingEntries &&
+            loaded.result.existingEntries.length > 0
+          ) {
+            setEntries(loaded.result.existingEntries);
+            const { conflicts: existingConflicts } = validateRosterEntries({
+              ...loaded.result.data,
+              entries: loaded.result.existingEntries,
+            });
+            setConflicts(existingConflicts);
+          } else {
+            const generated = generateMonthlyRoster(loaded.result.data);
+            setEntries(generated.entries);
+            setConflicts(generated.conflicts);
+          }
+        }
+      })
+      .catch(() => {
+        // Keep baseline fixture on error
+      });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
   // Reset all manual edits and re-run deterministic generation
   const regenerateRoster = useCallback(() => {
-    const freshFixture = createBaselineRosterInput(year, month);
-    setFixture(freshFixture);
-    const generated = generateMonthlyRoster(freshFixture);
+    const activeFixture =
+      dataSource === "SUPABASE"
+        ? fixture
+        : createBaselineRosterInput(year, month);
+    setFixture(activeFixture);
+    const generated = generateMonthlyRoster(activeFixture);
     setEntries(generated.entries);
     setConflicts(generated.conflicts);
     setManualEdits([]);
     setPersistenceStatus(null);
-  }, [year, month]);
+  }, [dataSource, fixture, year, month]);
 
   // Reassign an existing shift from one employee to another
   const reassignShift = useCallback(

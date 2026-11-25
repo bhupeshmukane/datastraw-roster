@@ -7,6 +7,8 @@ import {
   replaceGeneratedRosterEntries,
   upsertManualRosterEntry,
   resolveRosterConflict,
+  resolveRosterMonthId,
+  isUuid,
   loadRosterData,
   PersistRosterMonthPayloadSchema,
   PersistManualEditPayloadSchema,
@@ -88,7 +90,30 @@ export async function persistRosterMonthAction(
 
   try {
     const db = createSupabaseAdminClient();
-    const result = await replaceGeneratedRosterEntries(db, parsed.data);
+    const hasNonUuidEntry = parsed.data.entries.some(
+      (e) =>
+        !isUuid(e.employeeId) ||
+        !isUuid(e.brandId) ||
+        !isUuid(e.podId) ||
+        !isUuid(e.processId)
+    );
+    if (hasNonUuidEntry) {
+      return {
+        success: false,
+        configured: true,
+        message:
+          "Cannot persist baseline fixture IDs to Supabase because the database requires UUID foreign keys. Run supabase/migrations/202611240002_seed_baseline_ops.sql and reload so the roster uses Supabase UUID records.",
+      };
+    }
+
+    const resolvedMonthId = await resolveRosterMonthId(
+      db,
+      parsed.data.rosterMonthId
+    );
+    const result = await replaceGeneratedRosterEntries(db, {
+      ...parsed.data,
+      rosterMonthId: resolvedMonthId,
+    });
     return {
       success: true,
       configured: true,
@@ -137,7 +162,28 @@ export async function persistManualEditAction(
 
   try {
     const db = createSupabaseAdminClient();
-    const result = await upsertManualRosterEntry(db, parsed.data);
+    if (
+      !isUuid(parsed.data.employeeId) ||
+      !isUuid(parsed.data.brandId) ||
+      !isUuid(parsed.data.podId) ||
+      !isUuid(parsed.data.processId)
+    ) {
+      return {
+        success: false,
+        configured: true,
+        message:
+          "Cannot persist baseline fixture IDs to Supabase because the database requires UUID foreign keys. Run supabase/migrations/202611240002_seed_baseline_ops.sql and reload.",
+      };
+    }
+
+    const resolvedMonthId = await resolveRosterMonthId(
+      db,
+      parsed.data.rosterMonthId
+    );
+    const result = await upsertManualRosterEntry(db, {
+      ...parsed.data,
+      rosterMonthId: resolvedMonthId,
+    });
     return {
       success: true,
       configured: true,
@@ -184,7 +230,14 @@ export async function resolveConflictAction(
 
   try {
     const db = createSupabaseAdminClient();
-    await resolveRosterConflict(db, parsed.data);
+    const resolvedMonthId = await resolveRosterMonthId(
+      db,
+      parsed.data.rosterMonthId
+    );
+    await resolveRosterConflict(db, {
+      ...parsed.data,
+      rosterMonthId: resolvedMonthId,
+    });
     return {
       success: true,
       configured: true,

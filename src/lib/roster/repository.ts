@@ -57,6 +57,72 @@ export interface LoadedRosterResult {
   message: string;
 }
 
+const UUID_REGEX =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const MONTH_SLUG_REGEX = /^month-(\d{4})-(\d{2})$/;
+
+export function isUuid(value: string): boolean {
+  return UUID_REGEX.test(value);
+}
+
+export async function ensureRosterMonthId(
+  db: SupabaseClient,
+  year: number,
+  month: number
+): Promise<string> {
+  const { data: existing, error: selectError } = await db
+    .from("roster_months")
+    .select("id")
+    .eq("year", year)
+    .eq("month", month)
+    .maybeSingle();
+
+  if (selectError) {
+    throw new Error(
+      `Failed to look up roster month (${year}-${String(month).padStart(2, "0")}): ${selectError.message}`
+    );
+  }
+
+  if (existing?.id) {
+    return existing.id;
+  }
+
+  const { data: created, error: insertError } = await db
+    .from("roster_months")
+    .insert({
+      year,
+      month,
+      status: "DRAFT",
+      generated_at: new Date().toISOString(),
+    })
+    .select("id")
+    .single();
+
+  if (insertError || !created?.id) {
+    throw new Error(
+      `Failed to create roster month (${year}-${String(month).padStart(2, "0")}): ${insertError?.message ?? "unknown error"}`
+    );
+  }
+
+  return created.id;
+}
+
+export async function resolveRosterMonthId(
+  db: SupabaseClient,
+  rosterMonthId: string
+): Promise<string> {
+  if (isUuid(rosterMonthId)) {
+    return rosterMonthId;
+  }
+  const match = MONTH_SLUG_REGEX.exec(rosterMonthId);
+  if (match) {
+    const year = Number(match[1]);
+    const month = Number(match[2]);
+    return ensureRosterMonthId(db, year, month);
+  }
+  return rosterMonthId;
+}
+
 export async function replaceGeneratedRosterEntries(
   db: SupabaseClient,
   rawPayload: PersistRosterMonthPayload
